@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 
 
-mongoose.connect("mongodb+srv://manishreddy:laflame4033@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://manishreddy"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
@@ -36,8 +36,6 @@ const imgSchema = new mongoose.Schema({
 });
 
 const Image = mongoose.model("Image",imgSchema);
-
-app.use(jsonParser);
 
 app.get("/",(req,res) => {
     Image.find({},function(err,results){
