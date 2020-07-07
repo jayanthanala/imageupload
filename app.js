@@ -4,12 +4,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fs = require('fs');
-var path = require('path');
+const path = require('path');
 var multer  = require('multer');
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads')
+        cb(null, path.join(__dirname, '/uploads/'));
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now())
@@ -20,6 +20,7 @@ var upload = multer({ storage: storage })
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
+pp.use(express.static(__dirname));
 
 
 mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
