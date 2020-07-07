@@ -9,7 +9,7 @@ var multer  = require('multer');
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '/uploads/'));
+        cb(null, 'uploads')
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + file.originalname);
@@ -20,7 +20,6 @@ var upload = multer({ storage: storage })
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname));
 
 
 mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
