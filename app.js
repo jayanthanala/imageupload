@@ -71,6 +71,6 @@ app.post('/imgupload', upload.single('image'), function (req, res, next) {
     res.render("app",{Name: req.body.username});
 });
 
-app.listen( process.env.PORT || 3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("Server is up at "+process.env.PORT);
 });
