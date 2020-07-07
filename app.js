@@ -28,6 +28,7 @@ mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.r
   useFindAndModify: false
 });
 
+
 const imgSchema = new mongoose.Schema({
     img: {
         data: Buffer,
@@ -42,7 +43,7 @@ app.get("/",(req,res) => {
         if(err){
             console.log(err);
         }else{
-            res.render("pictures",{items: results,title: "My Recent Works"});
+            res.render("pictures",{items: results.reverse(),title: "My Recent Works"});
         }
     });
 });
