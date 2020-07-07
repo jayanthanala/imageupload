@@ -20,7 +20,7 @@ var upload = multer({ storage: storage })
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
-pp.use(express.static(__dirname));
+app.use(express.static(__dirname));
 
 
 mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
