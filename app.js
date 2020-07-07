@@ -52,7 +52,7 @@ app.get("/upload",(req,res) => {
 });
 
 app.post("/upload",(req,res) => {
-    if(req.body.username === "Manish" && req.body.password === "laflame"){
+    if(req.body.username === process.env.NAME && req.body.password === process.env.PASSWORD){
         res.render("app",{Name: req.body.username});
     }else{
         res.send("Wrong Credential Entered");
