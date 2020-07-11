@@ -1,41 +1,42 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Manish Illustrations</title>
-    <script src="https://kit.fontawesome.com/7b132b0ba8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Yellowtail&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <link href="index.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-  <div class="collapse" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-black">Place an order!</h4>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Manish Illustrations</title>
+  <script src="https://kit.fontawesome.com/7b132b0ba8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Yellowtail&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-          <p class="text-black">
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="collapse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-black">Place an order!</h4>
+
+            <p class="text-black">
             <ul>
               <li>
                 Prepare a good quality photo that has a high resolution which looks straight into the camera (photo close up for best results), not blur or dark.
@@ -44,69 +45,70 @@
                 The art will be drawn in style shown below. In case of any custom requirements, please mention before placing the order.
               </li>
               <li>
-                  Orders once confirmed after the payment cannot be canceled.
+                Orders once confirmed after the payment cannot be canceled.
               </li>
             </ul>
-        </p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-black">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="mailto:manishreddyu3@gmail.com" class="text-black"><i class="fas fa-envelope"></i> Email</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-light">
-    <div class="container d-flex justify-content-between">
-      <a href="/" class="navbar-brand d-flex align-items-center">
-        <strong style="font-family: 'Pacifico', cursive;color: black;">M</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 style="font-family: 'Rubik', sans-serif;color: white;" class="mheading">My Recent Works</h1>
-        <a href="https://www.instagram.com/manishreddy3/" class="btn btn-outline-light btm-sm my-2"><i class="fab fa-instagram"></i> Manish Reddy</a>
-      </p>
-    </div>
-  </section>
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <% items.forEach(function(image) { %>
-        <div class="col-md-4 text-center">
-          <div class="card mb-4  shadow-sm">
-            <img src="data:image/<%=image.img.contentType%>;base64,
-					<%=image.img.data.toString('base64')%>" style="width: 350px;height: 400px">
+            </p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-black">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="mailto:manishreddyu3@gmail.com" class="text-black"><i class="fas fa-envelope"></i> Email</a></li>
+            </ul>
           </div>
         </div>
-        <% }) %>
       </div>
     </div>
-  </div>
-</main>
+    <div class="navbar navbar-light">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand d-flex align-items-center">
+          <strong style="font-family: 'Pacifico', cursive;color: black;">M</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<footer class="text-muted">
-  <div class="container">
-    <p class="float-right">
-      <a href="#">Back to top</a>
-    </p>
-    <p>&copy 2020 <b>Manish Reddy</b></p>
-    <p><a href="/upload">Upload</a></p>
-  </div>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 style="font-family: 'Rubik', sans-serif;color: white;" class="mheading">My Recent Works</h1>
+        <a href="https://www.instagram.com/manishreddy3/" class="btn btn-outline-light btm-sm my-2"><i class="fab fa-instagram"></i> Manish Reddy</a>
+        </p>
+      </div>
+    </section>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <% items.forEach(function(image) { %>
+          <div class="col-md-4 text-center">
+            <div class="card mb-4  shadow-sm">
+              <img src="data:image/<%=image.img.contentType%>;base64,
+					<%=image.img.data.toString('base64')%>" style="width: 350px;height: 400px">
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>&copy 2020 <b>Manish Reddy</b></p>
+      <p><a href="/upload">Upload</a></p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
+
 </html>
