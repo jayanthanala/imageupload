@@ -22,13 +22,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 
 
-// mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false
-// });
+mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
 
-mongoose.connect("mongodb://localhost:27017/manishDB",{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:true});
+//mongoose.connect("mongodb://localhost:27017/manishDB",{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:true});
 
 
 const imgSchema = new mongoose.Schema({
