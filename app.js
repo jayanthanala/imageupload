@@ -22,11 +22,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 
 
-mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-});
+// mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false
+// });
+
+mongoose.connect("mongodb://localhost:27017/manishDB",{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:true});
 
 
 const imgSchema = new mongoose.Schema({
@@ -37,6 +39,20 @@ const imgSchema = new mongoose.Schema({
 });
 
 const Image = mongoose.model("Image",imgSchema);
+
+const adminSchema = new mongoose.Schema({
+  username:String,
+  password:String
+});
+
+const Admin = mongoose.model("Admin",adminSchema);
+
+var admin = new Admin({
+  username:"Manish",
+  password:"9000072033"
+});
+
+// admin.save();
 
 app.get("/",(req,res) => {
     Image.find({},function(err,results){
@@ -53,12 +69,18 @@ app.get("/upload",(req,res) => {
 });
 
 app.post("/upload",(req,res) => {
-    if(req.body.username === process.env.NAME && req.body.password === process.env.PASSWORD){
-        res.render("app",{Name: req.body.username});
-    }else{
-        res.send("Wrong Credential Entered");
-        // console.log(process.env.NAME, process.env.PASSWORD);
-    }
+    Admin.findOne({},function(err, results){
+      if(err){
+        console.log(err);
+      }else{
+        console.log(results);
+        if(req.body.username === results.username && req.body.password === results.password){
+          res.render("app",{Name: req.body.username});
+        }else{
+          res.send("Wrong Credential Entered");
+        }
+      }
+    });
 });
 
 app.post('/imgupload', upload.single('image'), function (req, res, next) {
@@ -70,6 +92,32 @@ app.post('/imgupload', upload.single('image'), function (req, res, next) {
     });
     image.save();
     res.render("app",{Name: req.body.username});
+});
+
+app.get('/change',(req,res) => {
+  res.render("change");
+});
+
+app.post("/change",(req,res) => {
+
+  Admin.find({},function(err,result){
+    if(err){
+      console.log(err);
+    }else{
+      console.log(result);
+      if(result[0].password === req.body.oldpass && req.body.newpass === req.body.newpass1){
+        Admin.findOneAndUpdate({username:"Manish"},{password: req.body.newpass},function(err,results){
+          if(err){
+            console.log(err);
+          }else{
+            res.redirect("/upload")
+          }
+        });
+      }else{
+        res.send("The creds you entered might be wrong. Check again!")
+      }
+    }
+  });
 });
 
 app.listen(process.env.PORT || 3000,function(){
