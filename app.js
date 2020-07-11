@@ -26,17 +26,13 @@ app.use(bodyParser.urlencoded({
 app.set("view engine", "ejs");
 
 
-mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.rbrhg.mongodb.net/manishDB?retryWrites=true&w=majority", {
+
+
+mongoose.connect("mongodb://localhost:27017/manishDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
 });
-
-// mongoose.connect("mongodb://localhost:27017/manishDB", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false
-// });
 
 
 const imgSchema = new mongoose.Schema({
@@ -55,10 +51,7 @@ const adminSchema = new mongoose.Schema({
 
 const Admin = mongoose.model("Admin", adminSchema);
 
-// var admin = new Admin({
-//   username:"Manish",
-//   password:"9000072033"
-// });
+
 
 // admin.save();
 
