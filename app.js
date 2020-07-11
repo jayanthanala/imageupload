@@ -28,7 +28,7 @@ mongoose.connect("mongodb+srv://manishreddy:"+process.env.DBPASS+"@webdatabase.r
   useFindAndModify: false
 });
 
-//mongoose.connect("mongodb://localhost:27017/manishDB",{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:true});
+//mongoose.connect("mongodb://localhost:27017/manishDB",{useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false});
 
 
 const imgSchema = new mongoose.Schema({
@@ -47,10 +47,10 @@ const adminSchema = new mongoose.Schema({
 
 const Admin = mongoose.model("Admin",adminSchema);
 
-var admin = new Admin({
-  username:"Manish",
-  password:"9000072033"
-});
+// var admin = new Admin({
+//   username:"Manish",
+//   password:"9000072033"
+// });
 
 // admin.save();
 
@@ -73,9 +73,15 @@ app.post("/upload",(req,res) => {
       if(err){
         console.log(err);
       }else{
-
         if(req.body.username === results.username && req.body.password === results.password){
-          res.render("app",{Name: req.body.username});
+
+          Image.find({},function(err,find){
+              if(err){
+                  console.log(err);
+              }else{
+                    res.render("app",{items:find.reverse(),Name: req.body.username});
+              }
+          });
         }else{
           res.send("Wrong Credential Entered");
         }
@@ -91,7 +97,13 @@ app.post('/imgupload', upload.single('image'), function (req, res, next) {
         }
     });
     image.save();
-    res.render("app",{Name: req.body.username});
+    Image.find({},function(err,find){
+        if(err){
+            console.log(err);
+        }else{
+              res.render("app",{items:find.reverse(),Name: req.body.username});
+        }
+    });
 });
 
 app.get('/change',(req,res) => {
@@ -116,6 +128,23 @@ app.post("/change",(req,res) => {
       }else{
         res.send("The creds you entered might be wrong. Check again!")
       }
+    }
+  });
+});
+
+app.post("/delete",(req,res) => {
+  console.log(req.body.picture);
+  Image.deleteOne({_id:req.body.picture},function(err,done){
+    if(err){
+      console.log(err);
+    }else{
+      Image.find({},function(err,finds){
+          if(err){
+              console.log(err);
+          }else{
+                res.render("app",{items: finds.reverse(),Name: req.body.username});
+          }
+      });
     }
   });
 });
