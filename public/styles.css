@@ -56,6 +56,12 @@ form button {
   font-size: 18px;
 }
 
+form a{
+  display:block;
+  margin:15px;
+  font-size: 1rem;
+}
+
 form button:hover {
   color:#50a3a2;
   background-color: white;

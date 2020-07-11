@@ -73,7 +73,7 @@ app.post("/upload",(req,res) => {
       if(err){
         console.log(err);
       }else{
-        console.log(results);
+
         if(req.body.username === results.username && req.body.password === results.password){
           res.render("app",{Name: req.body.username});
         }else{
@@ -104,7 +104,7 @@ app.post("/change",(req,res) => {
     if(err){
       console.log(err);
     }else{
-      console.log(result);
+
       if(result[0].password === req.body.oldpass && req.body.newpass === req.body.newpass1){
         Admin.findOneAndUpdate({username:"Manish"},{password: req.body.newpass},function(err,results){
           if(err){
