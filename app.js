@@ -28,7 +28,7 @@ app.set("view engine", "ejs");
 
 
 
-mongoose.connect("mongodb://localhost:27017/manishDB", {
+mongoose.connect("mongodb://localhost:27017/<dbname>", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
